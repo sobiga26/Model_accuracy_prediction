@@ -1,0 +1,21 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrices import accuracy_score,
+confusion_matrix
+data={
+       'Hours studied':[1,2,3,4,5,6,7,8,9],
+        'Pass probability':[0,0,0,1,1,1,1,1,1]
+}
+df=pd.DataFrame(data)
+X=df['Hours studied']
+Y=df['Pass probability']
+X_train,X_test,Y_train,Y_test=train_test_split(
+       x,y,test_sixe=0.3,random_state=42
+)
+model=RandomForestClassifer()
+model.fit(X_train,Y_train)
+y_pred=model.predic(X_test)
+print("Accuracy:",accuracy_score(y_test,y_pred))
+print("Confusion Matrix:")
+print(confusion_matrix(y_test,y_pred))
